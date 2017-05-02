@@ -1,0 +1,83 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Write a description of class Assassin here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class Player1 extends Actor
+{
+    
+    /**
+     * Act - do whatever the Assassin wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+   private int x;
+   private int y;
+   int timeToMove = 0;
+   int speedup = 10;
+    public void act() 
+    {
+        stopAtWalls();
+        
+            if (Greenfoot.isKeyDown("w")){
+            if (timeToMove == 0){    
+            setImage("Assassins3.png");                
+            setLocation(getX(), getY() - 1);
+            timeToMove = speedup;
+        }
+        }
+        
+        else if (Greenfoot.isKeyDown("s")){
+            if (timeToMove == 0){
+            setImage("Assassins4.png");
+            setLocation(getX(), getY() + 1);
+            timeToMove = speedup;
+        }
+        }
+         else if (Greenfoot.isKeyDown("a")){
+              if (timeToMove == 0){
+            setImage("Assassins2.png");        
+            setLocation(getX() - 1, getY());
+            timeToMove = speedup;
+        }                
+        }
+    
+         else if (Greenfoot.isKeyDown("d")){
+              if (timeToMove == 0){
+            setImage("Assassin.png");
+            setLocation(getX() + 1, getY());
+            timeToMove = speedup;
+        }
+        }
+            if (timeToMove == 0){
+        }
+        else{
+            timeToMove--;
+        }
+        if ("t".equals(Greenfoot.getKey())&& Bomb1.areBombsPlanted == false){
+            Bomb1 bomb = new Bomb1();
+            getWorld().addObject( bomb,getX(), getY());
+             Bomb1.BombsPlanted++;
+             bomb.isBombPlanted = true;
+            }
+        
+    
+        }
+   
+    
+    public void stopAtWalls(){
+        if (getOneIntersectingObject(Barrels.class) != null || getOneIntersectingObject(Bomb2.class) != null
+        || getOneIntersectingObject(Barrier1.class) != null || getOneIntersectingObject(Barrier2.class) != null ||  getOneIntersectingObject(HorizontalBrick.class) != null
+        || getOneIntersectingObject(VerticalBrick.class) != null)
+            {
+            setLocation(x,y);
+            }
+            else
+            {
+            x = getX();
+            y = getY();
+        }
+    }
+}

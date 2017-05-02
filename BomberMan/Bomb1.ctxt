@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Bomb1
+comment0.text=\n\ Write\ a\ description\ of\ class\ Bomb\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=void\ act()
+comment2.params=
+comment2.target=void\ explode()
+comment3.params=x\ y
+comment3.target=boolean\ canMove(int,\ int)
+comment4.params=x\ y
+comment4.target=boolean\ isBarrel(int,\ int)
+numComments=5
